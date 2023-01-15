@@ -1,0 +1,23 @@
+/*
+  Change the default Shopify's Polaris colors
+
+  If you would like to adjust more variable, view the full list here:
+  node_modules/@shopify/polaris/build/esm/styles.css
+*/
+
+:root {
+  /* Changes the default primary color from green to blue */
+  --p-action-primary: rgba(2, 132, 199, 1);
+  --p-action-primary-disabled: rgba(221, 221, 221, 1);
+  --p-action-primary-hovered: rgba(3, 105, 161, 1);
+  --p-action-primary-pressed: rgba(7, 89, 133, 1);
+  --p-action-primary-depressed: rgba(12, 74, 110, 1);
+  --p-icon-on-primary: rgba(255, 255, 255, 1);
+  --p-text-on-primary: rgba(255, 255, 255, 1);
+  --p-text-primary: rgba(2, 132, 199, 1);
+  --p-text-primary-hovered: rgba(3, 105, 161, 1);
+  --p-text-primary-pressed: rgba(7, 89, 133, 1);
+  --p-surface-primary-selected: rgba(236, 254, 255, 1);
+  --p-surface-primary-selected-hovered: rgba(224, 242, 254, 1);
+  --p-surface-primary-selected-pressed: rgba(186, 230, 253, 1);
+}

@@ -9,9 +9,11 @@ import {
   ScrollRestoration,
 } from '@remix-run/react';
 import { AppProvider } from '@shopify/polaris';
-import styles from '@shopify/polaris/build/esm/styles.css';
 import type { LinkLikeComponentProps } from '@shopify/polaris/build/ts/latest/src/utilities/link/types';
 import enTranslations from '@shopify/polaris/locales/en.json';
+
+import styles from '@shopify/polaris/build/esm/styles.css';
+import variables from '~/styles/variables.css';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -20,7 +22,10 @@ export const meta: MetaFunction = () => ({
 });
 
 export function links() {
-  return [{ rel: 'stylesheet', href: styles }];
+  return [
+    { rel: 'stylesheet', href: styles },
+    { rel: 'stylesheet', href: variables },
+  ];
 }
 
 function LinkWrapper(props: LinkLikeComponentProps) {

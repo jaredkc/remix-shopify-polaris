@@ -1,3 +1,15 @@
+# Remix with Shopify Polaris
+
+Build your [Remix](https://remix.run/) app with [Shopify Polaris](https://polaris.shopify.com/) using this template to handle the setup for you.
+
+- [AppProvider](https://polaris.shopify.com/components/app-provider) setup in `root.tsx` to enable sharing global settings throughout the hierarchy of your application.
+- `LinkLikeComponent` to ensure sure Polaris uses Remix's `<Link>` component.
+- `<AppFrame>` component created for the pages where you like to include a standard application frame. Includes showing the navigation menu item using the Remix [useMatches](https://remix.run/docs/en/v1/hooks/use-matches).
+- Edit or replace `app-logo.svg` and `app-logo-light.svg` with your logo to properly display in the [Frame](https://polaris.shopify.com/components/frame) component.
+- Adjust the colors of Polaris using the CSS variables in `variables.css`.
+
+---
+
 # Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)
