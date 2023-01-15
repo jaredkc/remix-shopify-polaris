@@ -11,7 +11,6 @@ const AppFrame = ({ children }: Props) => {
   const [mobileNavigationActive, setMobileNavigationActive] = useState(false);
   const matches = useMatches();
   const {pathname} = matches[matches.length - 1];
-  console.log('matches', pathname);
 
   const toggleUserMenuActive = useCallback(
     () => setUserMenuActive((userMenuActive) => !userMenuActive),
