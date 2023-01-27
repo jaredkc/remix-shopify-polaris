@@ -1,5 +1,5 @@
-import { useMatches } from '@remix-run/react';
-import { Frame, Navigation, TopBar } from '@shopify/polaris';
+import { useMatches, useTransition } from '@remix-run/react';
+import { Frame, Loading, Navigation, TopBar } from '@shopify/polaris';
 import { useCallback, useState } from 'react';
 
 type Props = {
@@ -7,6 +7,7 @@ type Props = {
 };
 
 const AppFrame = ({ children }: Props) => {
+  const transition = useTransition();
   const [userMenuActive, setUserMenuActive] = useState(false);
   const [mobileNavigationActive, setMobileNavigationActive] = useState(false);
   const matches = useMatches();
@@ -78,6 +79,7 @@ const AppFrame = ({ children }: Props) => {
         showMobileNavigation={mobileNavigationActive}
         onNavigationDismiss={toggleMobileNavigationActive}
       >
+        {transition.state !== 'idle' ? <Loading /> : null}
         {children}
       </Frame>
     </div>
