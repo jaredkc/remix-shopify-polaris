@@ -1,5 +1,5 @@
 import { useMatches, useNavigation } from '@remix-run/react';
-import { Button, Frame, Loading, Navigation, Toast, TopBar } from '@shopify/polaris';
+import { Frame, Loading, Navigation, TopBar } from '@shopify/polaris';
 import { useCallback, useState } from 'react';
 
 type Props = {
@@ -9,12 +9,12 @@ type Props = {
 const AppFrame = ({ children }: Props) => {
   const [userMenuActive, setUserMenuActive] = useState(false);
   const [mobileNavigationActive, setMobileNavigationActive] = useState(false);
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(false);
   const navigation = useNavigation();
   const matches = useMatches();
-  const {pathname} = matches[matches.length - 1];
+  const { pathname } = matches[matches.length - 1];
 
-  const toggleActive = useCallback(() => setActive((active) => !active), []);
+  // const toggleActive = useCallback(() => setActive((active) => !active), []);
 
   const toggleUserMenuActive = useCallback(
     () => setUserMenuActive((userMenuActive) => !userMenuActive),
@@ -73,9 +73,9 @@ const AppFrame = ({ children }: Props) => {
     accessibilityLabel: 'Remix with Shopify Polaris',
   };
 
-  const toastMarkup = active ? (
-    <Toast content="Message sent" onDismiss={toggleActive} />
-  ) : null;
+  // const toastMarkup = active ? (
+  //   <Toast content="Message sent" onDismiss={toggleActive} />
+  // ) : null;
 
   return (
     <div>
@@ -88,8 +88,8 @@ const AppFrame = ({ children }: Props) => {
       >
         {navigation.state !== 'idle' ? <Loading /> : null}
         {children}
-        <Button onClick={toggleActive}>Show Toast</Button>
-        {toastMarkup}
+        {/* <Button onClick={toggleActive}>Show Toast</Button>
+        {toastMarkup} */}
       </Frame>
     </div>
   );
