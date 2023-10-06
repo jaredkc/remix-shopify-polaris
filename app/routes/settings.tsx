@@ -5,7 +5,7 @@ export default function Settings() {
   return (
     <AppFrame>
       <Page title="Settings">
-        <Card sectioned>
+        <Card>
           <EmptyState
             heading="Manage your settings"
             image="https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png"

@@ -1,18 +1,18 @@
-import type { ActionArgs } from '@remix-run/node';
+import type { ActionFunctionArgs } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Form, useActionData } from '@remix-run/react';
-import { Card, Page, Stack } from '@shopify/polaris';
+import { Card, Page, VerticalStack } from '@shopify/polaris';
 
 type Errors = {
   [key: string]: string | null;
 };
 
-export async function action({ request }: ActionArgs) {
+export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
   const title = formData.get('title');
   const description = formData.get('description');
 
-  let errors: Errors = { title: null, description: null };
+  const errors: Errors = { title: null, description: null };
 
   if (typeof title !== 'string' || title.length === 0) {
     errors.title = 'Title is required';
@@ -30,11 +30,11 @@ export default function NewProduct() {
   return (
     <Page
       title="New product"
-      breadcrumbs={[{ content: 'Products', url: '/products' }]}
+      backAction={{ content: 'Products', url: '/products' }}
     >
-      <Card sectioned>
+      <Card>
         <Form method="post">
-          <Stack vertical>
+          <VerticalStack>
             <p>
               <label>
                 Title:{' '}
@@ -56,7 +56,7 @@ export default function NewProduct() {
               <textarea name="description" id="description" />
             </p>
             <button type="submit">Submit</button>
-          </Stack>
+          </VerticalStack>
         </Form>
       </Card>
     </Page>

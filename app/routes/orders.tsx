@@ -5,7 +5,7 @@ export default function Orders() {
   return (
     <AppFrame>
       <Page title="Orders">
-        <Card sectioned>
+        <Card>
           <EmptyState
             heading="Manage your orders"
             image="https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png"

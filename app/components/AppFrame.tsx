@@ -1,4 +1,4 @@
-import { useMatches, useTransition } from '@remix-run/react';
+import { useMatches, useNavigation } from '@remix-run/react';
 import { Button, Frame, Loading, Navigation, Toast, TopBar } from '@shopify/polaris';
 import { useCallback, useState } from 'react';
 
@@ -10,7 +10,7 @@ const AppFrame = ({ children }: Props) => {
   const [userMenuActive, setUserMenuActive] = useState(false);
   const [mobileNavigationActive, setMobileNavigationActive] = useState(false);
   const [active, setActive] = useState(false);
-  const transition = useTransition();
+  const navigation = useNavigation();
   const matches = useMatches();
   const {pathname} = matches[matches.length - 1];
 
@@ -86,7 +86,7 @@ const AppFrame = ({ children }: Props) => {
         showMobileNavigation={mobileNavigationActive}
         onNavigationDismiss={toggleMobileNavigationActive}
       >
-        {transition.state !== 'idle' ? <Loading /> : null}
+        {navigation.state !== 'idle' ? <Loading /> : null}
         {children}
         <Button onClick={toggleActive}>Show Toast</Button>
         {toastMarkup}

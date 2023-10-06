@@ -10,7 +10,7 @@ export default function Products() {
         </Button>
       }
     >
-      <Card sectioned>
+      <Card>
         <EmptyState
           heading="Manage your products"
           image="https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png"

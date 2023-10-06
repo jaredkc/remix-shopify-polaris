@@ -1,4 +1,3 @@
-import type { MetaFunction } from '@remix-run/node';
 import {
   Link,
   Links,
@@ -9,17 +8,19 @@ import {
   ScrollRestoration,
 } from '@remix-run/react';
 import { AppProvider } from '@shopify/polaris';
-import type { LinkLikeComponentProps } from '@shopify/polaris/build/ts/latest/src/utilities/link/types';
-import enTranslations from '@shopify/polaris/locales/en.json';
+import type { LinkLikeComponentProps } from '@shopify/polaris/build/ts/src/utilities/link/types';
 
 import styles from '@shopify/polaris/build/esm/styles.css';
 import variables from '~/styles/variables.css';
+import type { MetaFunction } from '@remix-run/node';
 
-export const meta: MetaFunction = () => ({
-  charset: 'utf-8',
-  title: 'New Remix App',
-  viewport: 'width=device-width,initial-scale=1',
-});
+export const meta: MetaFunction = () => {
+  return [
+    { charset: 'utf-8' },
+    { title: 'New Remix App' },
+    { viewport: 'width=device-width,initial-scale=1' },
+  ];
+};
 
 export function links() {
   return [
@@ -28,13 +29,12 @@ export function links() {
   ];
 }
 
+/** @type {any} */
 function LinkWrapper(props: LinkLikeComponentProps) {
-  const { children, url, ...rest } = props;
-
   return (
     // TODO: fix type conflix with LegacyRef and Ref between Remix and Polaris
-    <Link to={url} {...rest}>
-      {children}
+    <Link to={props.url ?? props.to} ref={props.ref} {...props}>
+      {props.children}
     </Link>
   );
 }
@@ -47,7 +47,25 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <AppProvider i18n={enTranslations} linkComponent={LinkWrapper}>
+        <AppProvider
+          i18n={{
+            Polaris: {
+              ResourceList: {
+                sortingLabel: 'Sort by',
+                defaultItemSingular: 'item',
+                defaultItemPlural: 'items',
+                showing: 'Showing {itemsCount} {resource}',
+                Item: {
+                  viewItem: 'View details for {itemName}',
+                },
+              },
+              Common: {
+                checkbox: 'checkbox',
+              },
+            },
+          }}
+          linkComponent={LinkWrapper}
+        >
           <Outlet />
         </AppProvider>
         <ScrollRestoration />
