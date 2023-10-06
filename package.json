@@ -13,8 +13,11 @@
     "@remix-run/react": "^2.0.1",
     "@remix-run/serve": "^2.0.1",
     "@shopify/polaris": "^11.25.0",
+    "immutability-helper": "^3.1.1",
     "isbot": "^3.6.5",
     "react": "^18.2.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
